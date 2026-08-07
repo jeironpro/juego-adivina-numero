@@ -135,12 +135,6 @@
   color: var(--color-ink-2);
 }
 
-.rules__note {
-  margin-top: var(--space-xl);
-  max-width: 38ch;
-  color: var(--color-ink-2);
-}
-
 /* ── Pie de página (Ft8, marquee) ────────────────── */
 .foot-marquee {
   overflow: hidden;

@@ -35,6 +35,7 @@ Después abre `http://localhost:8000` (o el puerto que indique la herramienta) e
 2. El juego te dirá si el número secreto es más alto o más bajo.
 3. Repite hasta acertar. El mejor récord (menor cantidad de intentos) se guarda en el navegador mediante `localStorage`.
 4. Pulsa **Nuevo juego** para reiniciar cuando quieras.
+5. Pulsa el botón **?** (junto a la tarjeta) para ver cómo y dónde se guardan tus datos.
 
 ## Estructura del proyecto
 
@@ -45,11 +46,11 @@ Después abre `http://localhost:8000` (o el puerto que indique la herramienta) e
 │   ├── tokens.css      # Libro de estilo en custom properties
 │   ├── reset.css       # Reseteo mínimo
 │   ├── style.css       # Entrada: base + sistema de botones
-│   ├── components/     # Componentes (tarjeta del juego)
+│   ├── components/     # Componentes (tarjeta del juego, modal de datos)
 │   └── pages/          # Layout de la página
 ├── js/
 │   ├── app.js          # Punto de entrada (ES Modules)
-│   ├── modules/        # Lógica del juego
+│   ├── modules/        # Lógica del juego y del modal
 │   └── utils/          # Utilidades (DOM, localStorage)
 ├── assets/
 │   └── favicon.svg

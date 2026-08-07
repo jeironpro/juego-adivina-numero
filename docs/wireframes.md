@@ -24,7 +24,6 @@
 │  │ 01 Pienso un número secreto                    │     │
 │  │ 02 Escribe tu suposición                       │     │
 │  │ 03 Sigue las pistas                            │     │
-│  │ Tu mejor récord se guarda en este navegador    │     │
 │  └────────────────────────────────────────────────┘     │
 │  ┌──────────────────────────────────────────────────┐   │
 │  │ Adivina el número · Inténtalo otra vez · 1–100  │   │
@@ -72,6 +71,8 @@
 
 **Notas mobile**
 
+- El botón **?** (marca en la esquina de la tarjeta) abre el modal informativo de datos; es un botón real con `aria-label`.
+- El modal de datos (`modal__overlay` + `modal__dialog`) aparece centrado sobre un fondo oscurecido y se cierra con **Entendido**, la tecla `Esc` o pulsando fuera del diálogo.
 - El hero apila en una columna: texto primero, tarjeta debajo.
 - El formulario mantiene input + botón en una fila.
 - La marca "(?)" sobresale del borde superior derecho de la tarjeta.

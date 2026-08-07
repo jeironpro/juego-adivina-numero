@@ -48,11 +48,17 @@ El botón **Nuevo juego** genera un nuevo número secreto, resetea el contador d
 
 El mejor récord se guarda en `localStorage` con la clave `adivina-numero:mejor-record`. Todo acceso a `localStorage` se envuelve en `try/catch` porque puede fallar (navegadores con almacenamiento deshabilitado o modo incógnito) y el juego debe seguir funcionando sin él.
 
+### Cómo lo sabe el jugador
+
+El botón **?** de la esquina de la tarjeta (un botón real con `aria-label`) abre un modal informativo que explica qué se guarda, que los datos viven solo en el dispositivo y cómo borrarlos desde el navegador. Se garantiza el cierre con **Entendido**, `Esc`, clic fuera del diálogo y la gestión de foco (trampa de Tab y devolución del foco al cerrar).
+
 ## Accesibilidad incorporada
 
 - Formulario con `label` asociado al campo mediante `for`/`id`.
 - Zona de retroalimentación con `role="status"` y `aria-live="polite"`.
 - Campo de error con `role="alert"` y `aria-invalid` conmutable.
+- Campo de error con `role="alert"` y `aria-invalid` conmutable.
 - Enlace "Saltar al juego" para navegación por teclado.
+- Modal de datos accesible: `role="dialog"`, `aria-modal="true"`, título asociado con `aria-labelledby`, trampa de foco y cierre con `Esc`.
 - Anillos de foco visibles en todos los elementos interactivos.
 - Soporte de `prefers-reduced-motion`: con movimiento reducido se muestran los valores finales sin animación.

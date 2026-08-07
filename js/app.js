@@ -6,6 +6,9 @@
 import { qs, createElement } from "./utils/dom.js";
 import { getBestScore, saveBestScore } from "./utils/storage.js";
 import { createGame, MIN, MAX } from "./modules/game.js";
+import { initModal } from "./modules/modal.js";
+
+initModal();
 
 const elements = {
   form: qs("#game-form"),
