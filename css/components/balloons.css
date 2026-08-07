@@ -120,8 +120,8 @@
   border-radius: 50%;
   background: var(--balloon-color);
   opacity: 0;
-  animation: burst-fly 320ms var(--ease-out) forwards;
-  animation-delay: 90ms;
+  animation: burst-fly 480ms linear forwards;
+  animation-delay: 80ms;
 }
 
 .burst-dot--lg {
@@ -135,8 +135,12 @@
     transform: translateY(0) scale(1);
     opacity: 1;
   }
+  60% {
+    transform: translateY(calc(-0.85 * var(--dist))) scale(0.8);
+    opacity: 1;
+  }
   100% {
-    transform: translateY(calc(-1 * var(--dist))) scale(0);
+    transform: translateY(calc(-1 * var(--dist))) scale(0.2);
     opacity: 0;
   }
 }

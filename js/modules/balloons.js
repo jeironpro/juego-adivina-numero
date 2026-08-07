@@ -120,7 +120,7 @@ export function initBalloons(container) {
     const art = qs(".balloon__svg", next);
     art.classList.add("balloon__svg--popped");
     burst(next);
-    window.setTimeout(() => next.remove(), 480);
+    window.setTimeout(() => next.remove(), 620);
   }
 
   /**
