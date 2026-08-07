@@ -2,7 +2,7 @@
 
 ## Objetivo del juego
 
-Adivinar el número secreto que elige el navegador entre **1 y 100** (ambos inclusive), haciendo la menor cantidad de intentos posible. Tras cada suposición, el juego indica si el número es más alto o más bajo que la suposición. En una partida se puede hacer un número ilimitado de intentos.
+Adivinar el número secreto que elige el navegador entre **1 y 100** (ambos inclusive), haciendo la menor cantidad de intentos posible. Tras cada suposición, el juego indica si el número es más alto o más bajo que la suposición. La partida permite un máximo de **10 intentos** (un globo por intento); si se agotan, la partida termina en derrota.
 
 ## Flujo de una partida
 
@@ -38,11 +38,20 @@ Al acertar:
 - El mensaje de victoria muestra el número secreto y la cantidad de intentos.
 - Se compara con el récord guardado: si se mejora (menos intentos) o es el primero, se guarda en `localStorage` y se indica "¡Nuevo récord!".
 - El personaje decorativo (la marca "?") hace una animación de celebración y suelta una estrella (microinteracción de éxito).
+- Los globos restantes vuelan hacia arriba en celebración.
 - El formulario se deshabilita hasta que se inicia un nuevo juego.
 
-### 4. Nuevo juego
+### 4. Derrota
 
-El botón **Nuevo juego** genera un nuevo número secreto, resetea el contador de intentos y habilita el formulario de nuevo. El mejor récord histórico se conserva.
+Al fallar en el décimo intento (cuando se usan los 10 globos):
+
+- Se muestra el mensaje "¡Te quedaste sin globos!" revelando el número secreto.
+- **No** se guarda ningún récord en `localStorage`.
+- El formulario se deshabilita hasta que se inicia un nuevo juego.
+
+### 5. Nuevo juego
+
+El botón **Nuevo juego** genera un nuevo número secreto, resetea el contador de intentos, restaura los 10 globos y habilita el formulario de nuevo. El mejor récord histórico se conserva.
 
 ## Persistencia
 
@@ -57,8 +66,8 @@ El botón **?** de la esquina de la tarjeta (un botón real con `aria-label`) ab
 - Formulario con `label` asociado al campo mediante `for`/`id`.
 - Zona de retroalimentación con `role="status"` y `aria-live="polite"`.
 - Campo de error con `role="alert"` y `aria-invalid` conmutable.
-- Campo de error con `role="alert"` y `aria-invalid` conmutable.
 - Enlace "Saltar al juego" para navegación por teclado.
 - Modal de datos accesible: `role="dialog"`, `aria-modal="true"`, título asociado con `aria-labelledby`, trampa de foco y cierre con `Esc`.
 - Anillos de foco visibles en todos los elementos interactivos.
 - Soporte de `prefers-reduced-motion`: con movimiento reducido se muestran los valores finales sin animación.
+- Los globos se dibujan como SVG con `aria-hidden="true"` (son decorativos); la información funcional viaja por el contador de intentos y los mensajes en `aria-live`.

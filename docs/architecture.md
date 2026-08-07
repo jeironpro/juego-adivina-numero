@@ -14,9 +14,11 @@ El proyecto es un sitio web estático de una sola página construido con **HTML,
 │     ├── css/style.css        base + sistema de botones      │
 │     │   └─ @import: reset.css, components/, pages/         │
 │     ├── js/app.js            (módulo ES6, entrada)          │
-│     │   ├── js/modules/game.js   lógica del juego           │
-│     │   ├── js/utils/dom.js      helpers de DOM             │
-│     │   └── js/utils/storage.js  persistencia (localStorage)│
+│     │   ├── js/modules/game.js     lógica del juego          │
+│     │   ├── js/modules/balloons.js globos de intentos        │
+│     │   ├── js/modules/modal.js    diálogo de datos          │
+│     │   ├── js/utils/dom.js        helpers de DOM            │
+│     │   └── js/utils/storage.js    persistencia (localStorage)│
 │     └── assets/favicon.svg    icono de la página            │
 │                                                            │
 │  Flujo: HTML estructura el DOM → CSS aplica estilos →       │
@@ -37,7 +39,8 @@ El proyecto es un sitio web estático de una sola página construido con **HTML,
 | Pieza | Responsabilidad |
 |---|---|
 | `index.html` | Estructura semántica de la página (header, main, secciones, footer) |
-| `js/modules/game.js` | Número secreto, intentos, validación y evaluación de suposiciones |
+| `js/modules/game.js` | Número secreto, intentos (máximo 10), validación y evaluación de suposiciones |
+| `js/modules/balloons.js` | Dibuja los 10 globos (SVG), reventón al fallar y vuelo al acertar |
 | `js/modules/modal.js` | Ciclo de vida del modal informativo: apertura, cierre, foco y scroll |
 | `js/utils/storage.js` | Lectura y escritura del mejor récord en `localStorage` |
 | `js/utils/dom.js` | Helpers de selección y creación de elementos (sin inyección de HTML) |
