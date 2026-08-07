@@ -9,7 +9,7 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/
 ### Added
 
 - Sistema de globos: 10 globos representan los 10 intentos de cada partida, dibujados como SVG en línea con colores de la paleta.
-- Animación de reventón al fallar: el globo revienta y expulsa **8 residuos** del color del globo que se esparcen desde el centro hacia afuera.
+- Animación de reventón al fallar: el globo revienta en su sitio y una capa a nivel de **viewport** expulsa **40 residuos** del color del globo que se esparcen radialmente desde el punto de la explosión y se funden.
 - Animación de vuelo de los globos restantes al acertar (celebración).
 - Estado de derrota al agotar los globos: se revela el número secreto y se deshabilita el formulario.
 

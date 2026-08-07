@@ -86,27 +86,44 @@ export function initBalloons(container) {
   }
 
   /**
-   * Añade los residuos que se esparcen al reventar un globo.
-   * @param {HTMLElement} li Globo en el que se produce la explosión.
+   * Lanza los residuos de la explosión en la capa del viewport.
+   * @param {HTMLElement} li Globo que revienta (define el origen).
    */
   function burst(li) {
-    const wrap = document.createElement("span");
-    wrap.className = "balloon-burst";
+    const rect = li.getBoundingClientRect();
+    const originX = Math.round(rect.left + rect.width / 2);
+    const originY = Math.round(rect.top + rect.height / 2);
+    const color =
+      getComputedStyle(li).getPropertyValue("--balloon-color").trim() ||
+      "var(--color-accent)";
 
-    for (let i = 0; i < 8; i += 1) {
-      const angle = (360 / 8) * i;
-      const dist = 18 + (i % 3) * 4;
+    const layer = document.createElement("div");
+    layer.className = "balloon-pop";
+    layer.style.setProperty("--origin-x", `${originX}px`);
+    layer.style.setProperty("--origin-y", `${originY}px`);
+    layer.style.setProperty("--balloon-color", color);
+
+    for (let i = 0; i < 40; i += 1) {
+      const base = (360 / 40) * i;
+      const angle = base + Math.round((Math.random() - 0.5) * 8);
+      const dist = 120 + Math.round(Math.random() * 200);
+      const size = 4 + Math.round(Math.random() * 4);
+
       const track = document.createElement("span");
       track.className = "burst-track";
-      track.style.setProperty("--angle", `${angle}deg`);
-      track.style.setProperty("--dist", `${dist}px`);
+      track.style.setProperty("--a", `${angle}deg`);
+
       const dot = document.createElement("span");
-      dot.className = `burst-dot${i % 2 === 0 ? " burst-dot--lg" : ""}`;
+      dot.className = "burst-dot";
+      dot.style.setProperty("--dist", `${dist}px`);
+      dot.style.setProperty("--s", `${size}px`);
+
       track.appendChild(dot);
-      wrap.appendChild(track);
+      layer.appendChild(track);
     }
 
-    li.appendChild(wrap);
+    document.body.appendChild(layer);
+    window.setTimeout(() => layer.remove(), 760);
   }
 
   /**
