@@ -58,9 +58,14 @@
         </div>
 
         <article class="game-card">
-          <div class="game-mark" aria-hidden="true">
-            <span class="game-mark__face">?</span>
-          </div>
+          <button
+            type="button"
+            class="game-mark"
+            id="info-trigger"
+            aria-label="Más información sobre el guardado de tus datos"
+          >
+            <span class="game-mark__face" aria-hidden="true">?</span>
+          </button>
 
           <form class="game-form" id="game-form" novalidate>
             <label class="game-form__label" for="guess">Tu suposición</label>
@@ -135,10 +140,6 @@
               </p>
             </li>
           </ol>
-          <p class="rules__note">
-            Tu mejor récord se guarda en este navegador. Sin servidores, sin
-            cuentas.
-          </p>
         </div>
       </section>
     </main>
@@ -158,6 +159,37 @@
         Adivina el número · juego de portafolio · licencia MIT
       </p>
     </footer>
+
+    <div class="modal__overlay" id="data-modal" hidden>
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-titulo"
+        aria-describedby="modal-texto"
+        tabindex="-1"
+      >
+        <h2 id="modal-titulo" class="modal__titulo">
+          Tus datos se guardan en este navegador
+        </h2>
+        <div class="modal__texto" id="modal-texto">
+          <p>
+            Tu progreso se almacena con <strong>localStorage</strong> en este
+            navegador: tu mejor récord, es decir, la partida en la que acertaste
+            con la menor cantidad de intentos.
+          </p>
+          <p>
+            Los datos viven solo en tu dispositivo: no se envían a ningún
+            servidor. Puedes borrarlos cuando quieras desde la configuración de
+            tu navegador (opción «limpiar datos» o «borrar el almacenamiento
+            local»).
+          </p>
+        </div>
+        <div class="modal__acciones">
+          <button type="button" class="btn" id="modal-close">Entendido</button>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="js/app.js"></script>
   </body>

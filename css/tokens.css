@@ -16,6 +16,7 @@
   --color-lavender: oklch(74% 0.16 305);
   --color-error: oklch(45% 0.20 20);
   --color-focus: oklch(50% 0.19 235);
+  --color-overlay: oklch(20% 0.012 250 / 0.45);
 
   /* ── Tipografía ────────────────────────────────── */
   --font-display: "Plus Jakarta Sans", ui-rounded, "Hiragino Maru Gothic ProN",
@@ -71,6 +72,7 @@
   --z-raised: 10;
   --z-sticky: 200;
   --z-toast: 500;
+  --z-modal: 600;
 
   /* ── Layout ────────────────────────────────────── */
   --page-max: 68rem;

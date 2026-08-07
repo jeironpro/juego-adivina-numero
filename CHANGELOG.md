@@ -4,6 +4,17 @@ Todas las modificaciones notables de este proyecto se documentan en este archivo
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/), y este proyecto respeta [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.2.0] - 2026-08-07
+
+### Added
+
+- Modal informativo sobre el guardado de datos, abierto con el botón **?** de la tarjeta.
+- Gestión de foco, cierre con `Esc`, clic fuera del diálogo y devolución del foco al origen.
+
+### Changed
+
+- Se sustituye el aviso estático "Tu mejor récord se guarda en este navegador" por un diálogo accesible que explica el uso de `localStorage`.
+
 ## [0.1.0] - 2026-08-07
 
 ### Added
