@@ -86,6 +86,30 @@ export function initBalloons(container) {
   }
 
   /**
+   * Añade los residuos que se esparcen al reventar un globo.
+   * @param {HTMLElement} li Globo en el que se produce la explosión.
+   */
+  function burst(li) {
+    const wrap = document.createElement("span");
+    wrap.className = "balloon-burst";
+
+    for (let i = 0; i < 8; i += 1) {
+      const angle = (360 / 8) * i;
+      const dist = 18 + (i % 3) * 4;
+      const track = document.createElement("span");
+      track.className = "burst-track";
+      track.style.setProperty("--angle", `${angle}deg`);
+      track.style.setProperty("--dist", `${dist}px`);
+      const dot = document.createElement("span");
+      dot.className = `burst-dot${i % 2 === 0 ? " burst-dot--lg" : ""}`;
+      track.appendChild(dot);
+      wrap.appendChild(track);
+    }
+
+    li.appendChild(wrap);
+  }
+
+  /**
    * Revienta el siguiente globo vivo de izquierda a derecha.
    */
   function pop() {
@@ -95,7 +119,8 @@ export function initBalloons(container) {
     next.dataset.state = "popped";
     const art = qs(".balloon__svg", next);
     art.classList.add("balloon__svg--popped");
-    window.setTimeout(() => next.remove(), 380);
+    burst(next);
+    window.setTimeout(() => next.remove(), 480);
   }
 
   /**
