@@ -87,12 +87,12 @@ export function initBalloons(container) {
 
   /**
    * Lanza los residuos de la explosión en la capa del viewport.
-   * @param {HTMLElement} li Globo que revienta (define el origen).
+   * El estallido parte del centro de la página.
+   * @param {HTMLElement} li Globo que revienta (aporta el color de los residuos).
    */
   function burst(li) {
-    const rect = li.getBoundingClientRect();
-    const originX = Math.round(rect.left + rect.width / 2);
-    const originY = Math.round(rect.top + rect.height / 2);
+    const originX = Math.round(window.innerWidth / 2);
+    const originY = Math.round(window.innerHeight / 2);
     const color =
       getComputedStyle(li).getPropertyValue("--balloon-color").trim() ||
       "var(--color-accent)";
