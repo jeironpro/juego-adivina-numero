@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Adivina el número · Juego de adivinanza</title>
+    <meta
+      name="description"
+      content="Un pequeño juego donde debes adivinar el número secreto entre 1 y 100 con la menor cantidad de intentos. Proyecto de portafolio en HTML, CSS y JavaScript."
+    />
+    <meta name="theme-color" content="#f4f2e8" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#game">Saltar al juego</a>
+
+    <header class="site-header">
+      <nav class="nav-min" aria-label="Principal">
+        <a class="wordmark" href="#game">adivina el número</a>
+        <ul class="nav-min__links">
+          <li>
+            <a class="nav-min__link" href="#como-se-juega">Cómo se juega</a>
+          </li>
+          <li>
+            <a
+              class="nav-min__link"
+              href="https://github.com/jeironpro/juego-adivina-numero"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="game">
+        <div class="hero__copy">
+          <p class="mono-label">JUEGO · 1–100</p>
+          <h1>Adivina el número</h1>
+          <p class="hero__lede">
+            Estoy pensando en un número entre el 1 y el 100. Las pistas son
+            ilimitadas; el reto es acertar con la menor cantidad de intentos.
+          </p>
+        </div>
+
+        <article class="game-card">
+          <div class="game-mark" aria-hidden="true">
+            <span class="game-mark__face">?</span>
+          </div>
+
+          <form class="game-form" id="game-form" novalidate>
+            <label class="game-form__label" for="guess">Tu suposición</label>
+            <div class="game-form__row">
+              <input
+                class="game-form__input"
+                id="guess"
+                name="guess"
+                type="number"
+                min="1"
+                max="100"
+                step="1"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Entre 1 y 100"
+                required
+                aria-describedby="guess-error"
+              />
+              <button class="btn" type="submit">Adivinar</button>
+            </div>
+            <p class="game-form__error" id="guess-error" role="alert"></p>
+          </form>
+
+          <p
+            class="game-feedback"
+            id="feedback"
+            role="status"
+            aria-live="polite"
+          >
+            Piensa un número entre el 1 y el 100 y escribe tu primera
+            suposición.
+          </p>
+
+          <div class="game-stats">
+            <div class="game-stats__item">
+              <span class="game-stats__num" id="attempts">0</span>
+              <span class="game-stats__label">Intentos</span>
+            </div>
+            <div class="game-stats__item">
+              <span class="game-stats__num" id="best">—</span>
+              <span class="game-stats__label">Mejor récord</span>
+            </div>
+          </div>
+
+          <button class="btn btn--soft" type="button" id="new-game">
+            Nuevo juego
+          </button>
+        </article>
+      </section>
+
+      <section class="rules" id="como-se-juega">
+        <div class="rules__inner">
+          <h2>¿Cómo se juega?</h2>
+          <ol class="steps">
+            <li class="steps__item">
+              <span class="steps__num">01</span>
+              <h3>Pienso un número secreto</h3>
+              <p>Elige un número al azar entre el 1 y el 100.</p>
+            </li>
+            <li class="steps__item">
+              <span class="steps__num">02</span>
+              <h3>Escribe tu suposición</h3>
+              <p>
+                Introduce tu número y pulsa Adivinar. Cada intento cuenta.
+              </p>
+            </li>
+            <li class="steps__item">
+              <span class="steps__num">03</span>
+              <h3>Sigue las pistas</h3>
+              <p>
+                Te diré si el número es más alto o más bajo hasta que aciertes.
+              </p>
+            </li>
+          </ol>
+          <p class="rules__note">
+            Tu mejor récord se guarda en este navegador. Sin servidores, sin
+            cuentas.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot-marquee" aria-label="Pie de página">
+      <div class="foot-marquee__track" aria-hidden="true">
+        <span
+          >Adivina el número · Inténtalo otra vez · 1–100 · Adivina el número ·
+          Inténtalo otra vez · 1–100 ·</span
+        >
+        <span
+          >Adivina el número · Inténtalo otra vez · 1–100 · Adivina el número ·
+          Inténtalo otra vez · 1–100 ·</span
+        >
+      </div>
+      <p class="visually-hidden">
+        Adivina el número · juego de portafolio · licencia MIT
+      </p>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
