@@ -4,6 +4,19 @@ Todas las modificaciones notables de este proyecto se documentan en este archivo
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/), y este proyecto respeta [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.3.0] - 2026-08-08
+
+### Added
+
+- Sistema de globos: 10 globos representan los 10 intentos de cada partida, dibujados como SVG en línea con colores de la paleta.
+- Animación de reventón al fallar (el globo desaparece con `scale` y fundido).
+- Animación de vuelo de los globos restantes al acertar (celebración).
+- Estado de derrota al agotar los globos: se revela el número secreto y se deshabilita el formulario.
+
+### Changed
+- El juego pasa de permitir un número ilimitado de intentos a un máximo de **10 intentos por partida**.
+- El mensaje inicial y el lede del hero explican el nuevo límite de 10 globos.
+
 ## [0.2.0] - 2026-08-07
 
 ### Added

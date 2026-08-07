@@ -7,6 +7,7 @@ import { qs, createElement } from "./utils/dom.js";
 import { getBestScore, saveBestScore } from "./utils/storage.js";
 import { createGame, MIN, MAX } from "./modules/game.js";
 import { initModal } from "./modules/modal.js";
+import { initBalloons } from "./modules/balloons.js";
 
 initModal();
 
@@ -19,9 +20,11 @@ const elements = {
   best: qs("#best"),
   newGame: qs("#new-game"),
   mark: qs(".game-mark"),
+  balloons: qs("#balloons"),
 };
 
 const game = createGame();
+const balloons = initBalloons(elements.balloons);
 
 /** Preferencias de movimiento reducido del usuario. */
 const prefersReducedMotion = window.matchMedia(
@@ -29,7 +32,7 @@ const prefersReducedMotion = window.matchMedia(
 ).matches;
 
 const NOT_STARTED_MESSAGE =
-  "Piensa un número entre el 1 y el 100 y escribe tu primera suposición.";
+  "Tienes 10 globos: piensa un número entre 1 y 100 y escribe tu primera suposición.";
 
 let best = getBestScore();
 renderBest();
@@ -153,6 +156,21 @@ function handleWin(attempts) {
     "win"
   );
 
+  balloons.celebrate();
+  elements.input.disabled = true;
+  qs(".btn", elements.form).disabled = true;
+}
+
+/**
+ * Finaliza la partida al agotar los globos.
+ * @param {number} attempts Intentos usados en la partida.
+ */
+function handleLose(attempts) {
+  setFeedback(
+    `¡Te quedaste sin globos! El número era ${game.secret} y lo intentaste ${attempts} veces.`,
+    "lose"
+  );
+
   elements.input.disabled = true;
   qs(".btn", elements.form).disabled = true;
 }
@@ -167,6 +185,7 @@ function startNewGame() {
   }
   game.startNew();
   clearError();
+  balloons.reset();
   elements.input.value = "";
   elements.input.disabled = false;
   qs(".btn", elements.form).disabled = false;
@@ -197,9 +216,13 @@ elements.form.addEventListener("submit", (event) => {
 
   if (result.result === "win") {
     handleWin(result.attempts);
+  } else if (result.result === "lose") {
+    balloons.pop();
+    handleLose(result.attempts);
   } else {
     const hint = result.result === "low" ? "más alto" : "más bajo";
     setFeedback(`Es ${hint} que ${rawValue}.`, result.result);
+    balloons.pop();
   }
 
   animateMark(result.result);

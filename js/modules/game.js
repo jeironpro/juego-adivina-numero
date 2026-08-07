@@ -9,6 +9,9 @@ export const MIN = 1;
 /** Número máximo del rango. */
 export const MAX = 100;
 
+/** Máximo de intentos por partida (un globo por intento). */
+export const MAX_ATTEMPTS = 10;
+
 /**
  * Genera un número entero aleatorio entre MIN y MAX (inclusive).
  * @returns {number} Número secreto.
@@ -53,7 +56,8 @@ export function createGame() {
      * @param {string|number} rawValue Valor bruto introducido en el formulario.
      * @returns {object} Resultado:
      *  - ok: false si el valor no es un entero dentro del rango.
-     *  - ok: true, result: "win" | "low" | "high", attempts: intentos usados.
+     *  - ok: true, result: "win" | "low" | "high" | "lose",
+     *    attempts: intentos usados.
      */
     evaluate(rawValue) {
       const value = Number(rawValue);
@@ -65,6 +69,10 @@ export function createGame() {
 
       if (value === secret) {
         return { ok: true, result: "win", attempts };
+      }
+
+      if (attempts >= MAX_ATTEMPTS) {
+        return { ok: true, result: "lose", attempts };
       }
 
       return {
