@@ -13,6 +13,10 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/
 - Se unifican reglas duplicadas (`.wordmark:hover` y `.wordmark:active`).
 - Se extrae el estado habilitado/deshabilitado del formulario a helpers `disableForm`/`enableForm`, eliminando código repetido.
 
+### Changed
+
+- El header simplifica su navegación: se elimina el enlace "Cómo se juega" y el enlace a GitHub pasa a ser un icono.
+
 ## [0.3.0] - 2026-08-08
 
 ### Added

@@ -53,6 +53,17 @@
   color: var(--color-accent-2);
 }
 
+.nav-min__link--icon {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2xs);
+  border-radius: var(--radius-input);
+}
+
+.nav-min__icon {
+  display: block;
+}
+
 /* ── Héroe (el juego) ────────────────────────────── */
 .hero {
   max-width: var(--shell);
