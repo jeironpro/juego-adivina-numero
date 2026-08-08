@@ -37,14 +37,6 @@ export function createGame() {
       return secret;
     },
 
-    /**
-     * Cantidad de intentos realizados en la partida actual.
-     * @type {number}
-     */
-    get attempts() {
-      return attempts;
-    },
-
     /** Reinicia la partida con un nuevo número secreto y cero intentos. */
     startNew() {
       secret = randomNumber();

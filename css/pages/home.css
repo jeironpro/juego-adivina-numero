@@ -24,10 +24,7 @@
   white-space: nowrap;
 }
 
-.wordmark:hover {
-  color: var(--color-accent-2);
-}
-
+.wordmark:hover,
 .wordmark:active {
   color: var(--color-accent-2);
 }

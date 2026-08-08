@@ -14,16 +14,6 @@ export function qs(selector, root = document) {
 }
 
 /**
- * Selecciona todos los elementos que coinciden con el selector.
- * @param {string} selector Selector CSS.
- * @param {ParentNode} [root=document] Nodo raíz de la búsqueda.
- * @returns {Element[]} Lista de elementos encontrados.
- */
-export function qsa(selector, root = document) {
-  return Array.from(root.querySelectorAll(selector));
-}
-
-/**
  * Crea un elemento con clase y opcionalmente texto, sin inyectar HTML.
  * @param {string} tag Etiqueta del elemento.
  * @param {string} [className] Clase o lista de clases separadas por espacio.

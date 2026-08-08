@@ -4,6 +4,15 @@ Todas las modificaciones notables de este proyecto se documentan en este archivo
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/), y este proyecto respeta [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.3.1] - 2026-08-08
+
+### Limpieza
+
+- Se eliminan helpers y código sin uso: el export `qsa` de `dom.js` y el getter `attempts` del módulo del juego.
+- Se eliminan tokens de diseño sin uso (`--color-paper-3`, `--color-coral-deep`, `--ease-snap`, `--dur-micro`, `--dur-long`, `--z-base`) y la propiedad `--btn-line`.
+- Se unifican reglas duplicadas (`.wordmark:hover` y `.wordmark:active`).
+- Se extrae el estado habilitado/deshabilitado del formulario a helpers `disableForm`/`enableForm`, eliminando código repetido.
+
 ## [0.3.0] - 2026-08-08
 
 ### Added

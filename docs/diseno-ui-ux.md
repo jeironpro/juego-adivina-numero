@@ -51,7 +51,6 @@ La marca "?" en la esquina de la tarjeta es el único elemento decorativo animad
 |---|---|---|
 | `--color-paper` | `oklch(97% 0.012 95)` | Fondo principal (crema) |
 | `--color-paper-2` | `oklch(94% 0.016 95)` | Bandas y tarjeta |
-| `--color-paper-3` | `oklch(91% 0.020 95)` | Superficies al pasar el cursor |
 | `--color-ink` | `oklch(20% 0.012 250)` | Texto principal |
 | `--color-ink-2` | `oklch(42% 0.012 250)` | Texto secundario |
 | `--color-rule` | `oklch(86% 0.015 95)` | Bordes y separadores |
@@ -59,7 +58,6 @@ La marca "?" en la esquina de la tarjeta es el único elemento decorativo animad
 | `--color-accent-deep` | `oklch(74% 0.19 95)` | Borde del botón primario |
 | `--color-accent-2` | `oklch(66% 0.18 235)` | Vínculos, números de paso (cian) |
 | `--color-accent-3` | `oklch(68% 0.24 18)` | Momento de victoria (coral) |
-| `--color-coral-deep` | `oklch(45% 0.20 18)` | Texto de victoria |
 | `--color-mint` | `oklch(80% 0.16 150)` | Estados de éxito (uso puntual) |
 | `--color-lavender` | `oklch(74% 0.16 305)` | Etiquetas (uso puntual) |
 | `--color-error` | `oklch(45% 0.20 20)` | Mensajes de error |
@@ -95,8 +93,6 @@ Escala tipográfica (mayor tercera, 1.25): `--text-xs` 0.64rem · `--text-sm` 0.
 | `--ease-in` | `cubic-bezier(0.7, 0, 0.84, 0)` | Salidas |
 | `--ease-in-out` | `cubic-bezier(0.65, 0, 0.35, 1)` | Cambios de estado |
 | `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Elevación de tarjetas |
-| `--dur-micro` | 120 ms | Presión de botón |
 | `--dur-short` | 220 ms | Hover |
-| `--dur-long` | 420 ms | Entradas de sección |
 
 Con `prefers-reduced-motion: reduce` toda animación espacial se reduce a cambios de opacidad o se elimina.
