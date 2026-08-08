@@ -11,8 +11,10 @@ import { initBalloons } from "./modules/balloons.js";
 
 initModal();
 
+const form = qs("#game-form");
+
 const elements = {
-  form: qs("#game-form"),
+  form,
   input: qs("#guess"),
   error: qs("#guess-error"),
   feedback: qs("#feedback"),
@@ -21,6 +23,7 @@ const elements = {
   newGame: qs("#new-game"),
   mark: qs(".game-mark"),
   balloons: qs("#balloons"),
+  submit: qs(".btn", form),
 };
 
 const game = createGame();
@@ -113,6 +116,22 @@ function tickCounter(node, from, to) {
 }
 
 /**
+ * Deshabilita el formulario al finalizar la partida.
+ */
+function disableForm() {
+  elements.input.disabled = true;
+  elements.submit.disabled = true;
+}
+
+/**
+ * Habilita el formulario para comenzar una partida.
+ */
+function enableForm() {
+  elements.input.disabled = false;
+  elements.submit.disabled = false;
+}
+
+/**
  * Lanza la animación del personaje según el resultado de la jugada.
  * @param {"low"|"high"|"win"} result Resultado de la suposición.
  */
@@ -157,8 +176,7 @@ function handleWin(attempts) {
   );
 
   balloons.celebrate();
-  elements.input.disabled = true;
-  qs(".btn", elements.form).disabled = true;
+  disableForm();
 }
 
 /**
@@ -171,8 +189,7 @@ function handleLose(attempts) {
     "lose"
   );
 
-  elements.input.disabled = true;
-  qs(".btn", elements.form).disabled = true;
+  disableForm();
 }
 
 /**
@@ -187,10 +204,9 @@ function startNewGame() {
   clearError();
   balloons.reset();
   elements.input.value = "";
-  elements.input.disabled = false;
-  qs(".btn", elements.form).disabled = false;
+  enableForm();
   elements.attempts.textContent = "0";
-  elements.best.textContent = best === null ? "—" : String(best);
+  renderBest();
   setFeedback(NOT_STARTED_MESSAGE);
   elements.input.focus();
 }
